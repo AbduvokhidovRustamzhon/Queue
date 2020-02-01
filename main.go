@@ -39,6 +39,7 @@ func (q *queue) addElementToQueue(value int) {
 		}
 		current = current.next
 	}
+
 }
 
 func (q *queue) deleteFirstFromQueue() interface{} {
