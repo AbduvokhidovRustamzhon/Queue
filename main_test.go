@@ -7,11 +7,11 @@ func Test_queue_addElementsToQueue(t *testing.T) {
 	q.addElementToQueue(1)
 	q.addElementToQueue(2)
 	q.addElementToQueue(3)
-	if q.len() != 3{
+	if q.len() != 3 {
 		t.Error("length of the queue should be 3, got: ", q.len())
 	}
 	q.deleteFirstFromQueue()
-	if q.len() != 2{
+	if q.len() != 2 {
 		t.Error("after delete, length of the queue should be 2, got: ", q.len())
 	}
 }
@@ -19,7 +19,7 @@ func Test_queue_addElementsToQueue(t *testing.T) {
 func Test_emptyQueue(t *testing.T) {
 	q := queue{}
 	q.addElementToQueue(0)
-	if q.len()!= 1 {
+	if q.len() != 1 {
 		t.Error("length should be 0, got: ", q.len())
 	}
 }

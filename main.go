@@ -1,38 +1,38 @@
 package main
 
 type queueNode struct {
-	next     *queueNode
-	prev     *queueNode
-	priority int
+	next  *queueNode
+	prev  *queueNode
+	value int
 }
 
 type queue struct {
 	first *queueNode
-	last *queueNode
-	size int
+	last  *queueNode
+	size  int
 }
 
-func (q *queue) len() int{
+func (q *queue) len() int {
 	return q.size
 }
 
-func (q *queue) addElementToQueue(queuePtr int)  {
-	if q.len()==0 {
-	q.first = &queueNode{
-		next:     nil,
-		priority: queuePtr,
-	}
-	q.size++
-	q.last = q.first
+func (q *queue) addElementToQueue(value int) {
+	if q.len() == 0 {
+		q.first = &queueNode{
+			next:  nil,
+			value: value,
+		}
+		q.size++
+		q.last = q.first
 		return
 	}
 	q.size++
 	current := q.first
-	for{
+	for {
 		if current.next == nil {
 			current.next = &queueNode{
-				next:     nil,
-				priority: queuePtr,
+				next:  nil,
+				value: value,
 			}
 			q.last = current.next
 			return
@@ -41,30 +41,31 @@ func (q *queue) addElementToQueue(queuePtr int)  {
 	}
 }
 
-func (q *queue) deleteFirstFromQueue()  queue{
+func (q *queue) deleteFirstFromQueue() interface{} {
 	if q.len() == 0 {
 		return queue{}
 	}
-	result := queue{
-		first: q.first,
-		last:  nil,
-		size:  0,
-	}
+	result := q.first.value
+
 	q.first = q.first.next
 	q.size--
+
 	return result
 }
 
-func (q *queue) firstAtQueue()  *queueNode{
-	return q.first
+func (q *queue) firstAtQueue() interface{} {
+	if q.first == nil {
+		return nil
+	}
+	return q.first.value
 }
 
-func (q *queue) lastAtQueue() *queueNode{
-	return q.last
+func (q *queue) lastAtQueue() interface{} {
+	if q.last == nil {
+		return nil
+	}
+	return q.last.value
 }
 
 func main() {
 }
-
-
-
