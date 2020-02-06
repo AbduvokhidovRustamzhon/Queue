@@ -44,7 +44,7 @@ func (q *queue) addElementToQueue(value int) {
 
 func (q *queue) deleteFirstFromQueue() interface{} {
 	if q.len() == 0 {
-		return queue{}
+		return nil
 	}
 	result := q.first.value
 
