@@ -3,7 +3,7 @@ package main
 type queueNode struct {
 	next  *queueNode
 	prev  *queueNode
-	value int
+	value interface{}
 }
 
 type queue struct {
